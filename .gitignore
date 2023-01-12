@@ -1,0 +1,7 @@
+.idea/
+.vscode/
+/coverage/
+/vendor/
+/logs/*
+.env
+.DS_Store

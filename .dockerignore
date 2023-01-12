@@ -1,0 +1,6 @@
+docker-compose.php
+docker
+.git
+vendor
+.gitignore
+composer.lock

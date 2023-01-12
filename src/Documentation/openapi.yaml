@@ -1,0 +1,49 @@
+openapi: 3.0.0
+info:
+  title: 'PHP Challenge'
+  version: '0.1'
+paths:
+  /login:
+    post:
+      tags:
+        - Auth
+      operationId: db307b3263c3b4992db86a8c89eee1bf
+      responses:
+        '200':
+          description: 'Logged successfully.'
+        '404':
+          description: 'User not found.'
+        '400':
+          description: 'Fields cannot be empty.'
+  /stock:
+    get:
+      tags:
+        - StockQuote
+      operationId: 2d3a16be2643a594b50e1b6ac1f7139f
+      responses:
+        '200':
+          description: 'Received stock quote, saved register on DB and sent email.'
+        '400':
+          description: 'Quote symbol cannot be empty.'
+        '404':
+          description: 'Quote symbol not found. Please try again.'
+        '500':
+          description: 'Error while calling Stooq API or sendind e-mail.'
+  /history:
+    get:
+      tags:
+        - StockQuote
+      operationId: e0f6a86761bd654025652fe9c6530b8a
+      responses:
+        '200':
+          description: 'Successfully accessed history!'
+  /users:
+    post:
+      tags:
+        - User
+      operationId: 77e54004f99a4b82a3f509c068e07cc7
+      responses:
+        '201':
+          description: 'User has been created successfully.'
+        '400':
+          description: 'Invalid data provided or user already exists.'

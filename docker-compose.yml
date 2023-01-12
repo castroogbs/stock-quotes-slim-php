@@ -1,0 +1,31 @@
+version: "3.9"
+
+volumes:
+  mysqldata:
+
+services:
+  app:
+    build: ./docker
+    image: stock-quotes-app
+    container_name: stock-quotes
+    ports:
+      - 8000:80
+    volumes:
+      # Mount source-code for development
+      - ./:/var/www
+    depends_on:
+      - database
+  database:
+    image: mysql:8.0
+    container_name: stock-quotes-database
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysqldata:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=stocksapp
+      - MYSQL_ROOT_PASSWORD=root_stocksapp
+
+networks:
+  default:
+    name: stock_quotes_network
